@@ -1,0 +1,51 @@
+﻿@model CookieExample.Models.Account
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>BerkArat.com Login</h1>
+<div class=" w3l-login-form">
+    <h2>Login Here</h2>
+
+
+
+    <form action="~/Home/Login" method="POST">
+
+        <div class=" w3l-form-group">
+            <label>Username:</label>
+            <div class="group">
+                <i class="fa fa-user"></i>
+                @*<input type="text" class="form-control" placeholder="Username" required="required" />*@
+                @Html.TextBoxFor(Model => Model.Username, new {   @class ="form-control",@placeholder ="UserName",required="required"});
+
+            </div>
+        </div>
+        <div class=" w3l-form-group">
+            <label>Password:</label>
+            <div class="group">
+                <i class="fas fa-unlock"></i>
+                @*<input type="password" class="form-control" placeholder="Password" required="required" />*@
+                @Html.TextBoxFor(Model => Model.Password, new { @class = "form-control",@placeholder="Password",    required = "required" ,@type="password" });
+
+            </div>
+        </div>
+
+        <div class="forgot">
+            @Html.CheckBoxFor(m => m.RememberMe, false)
+        </div>
+
+        <button type="submit">Login</button>
+
+
+    </form>
+
+
+    @if (Model.Username!=null)
+    {
+        <h1> Merhaba @Model.Username</h1>
+    }
+
+
+
+</div>
